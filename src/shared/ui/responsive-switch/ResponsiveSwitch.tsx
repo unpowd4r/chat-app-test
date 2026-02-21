@@ -10,7 +10,7 @@ type Props = {
   mobile: ReactNode;
 };
 
-export const MobileLayoutHandler = ({ desktop, mobile }: Props) => {
+export const ResponsiveSwitch = ({ desktop, mobile }: Props) => {
   const isMobile = useMediaQuery(MEDIA_QUERIES.TABLET);
 
   return <>{isMobile ? mobile : desktop}</>;

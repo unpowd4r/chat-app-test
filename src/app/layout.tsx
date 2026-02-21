@@ -3,6 +3,9 @@ import { Geist } from 'next/font/google';
 
 import './globals.css';
 
+import { ChatProvider } from '@/features/chat-provider';
+import { CHATS_MOCKED } from '@/shared/mocks';
+
 const geistSans = Geist({
   subsets: ['latin']
 });
@@ -21,7 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.className} antialiased`}>
         <div className="flex min-h-screen items-center justify-center p-10 font-sans">
-          {children}
+          <ChatProvider initialChats={CHATS_MOCKED}>{children}</ChatProvider>
         </div>
       </body>
     </html>

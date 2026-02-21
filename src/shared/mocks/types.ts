@@ -4,3 +4,10 @@ export type TMessage = {
   createdAt: number;
   isMine: boolean;
 };
+
+export type TChat = {
+  id: string;
+  name: string;
+  avatar: string;
+  messages: TMessage[];
+};

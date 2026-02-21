@@ -1,2 +1,4 @@
-export { Button } from './Button/Button';
-export { Textarea } from './Textarea/Textarea';
+export { Button } from './button/Button';
+export { ChatHeader } from './chat-header/ChatHeader';
+export { ResponsiveSwitch } from './responsive-switch/ResponsiveSwitch';
+export { Textarea } from './textarea/Textarea';

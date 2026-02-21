@@ -1,4 +1,5 @@
-import { Message, type TMessage } from '@/entities/message';
+import { Message } from '@/entities/message';
+import { TMessage } from '@/shared/mocks';
 
 type TProps = {
   messages: TMessage[];
