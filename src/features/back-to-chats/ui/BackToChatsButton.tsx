@@ -2,6 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 
+import { ROUTES } from '@/shared/config/routes';
 import { Button } from '@/shared/ui';
 
 export const BackToChatsButton = () => {
@@ -9,7 +10,7 @@ export const BackToChatsButton = () => {
 
   return (
     <Button
-      onClick={() => router.push('/chat')}
+      onClick={() => router.push(ROUTES.CHAT)}
       className="bg-transparent p-0 text-gray-700 hover:bg-transparent hover:text-gray-500"
     >
       <svg
