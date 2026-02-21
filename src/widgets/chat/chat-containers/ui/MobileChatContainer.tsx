@@ -1,6 +1,6 @@
 'use client';
 
-import { DialogContainer } from '../../dialog';
+import { DialogContainer } from '../../../dialog';
 
 import { TChat } from '@/shared/mocks/types';
 

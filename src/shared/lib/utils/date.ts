@@ -48,6 +48,6 @@ export const sortChatsByTime = <T extends { messages: Array<{ createdAt: number 
     const lastMessageA = a.messages[a.messages.length - 1];
     const lastMessageB = b.messages[b.messages.length - 1];
 
-    return lastMessageB.createdAt - lastMessageA.createdAt;
+    return lastMessageB?.createdAt - lastMessageA.createdAt;
   });
 };

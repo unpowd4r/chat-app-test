@@ -1,7 +1,7 @@
 'use client';
 
-import { DialogContainer } from '../../dialog';
-import { ChatList } from '../chat-list/ui/ChatList';
+import { DialogContainer } from '../../../dialog';
+import { ChatList } from '../../chat-list/ui/ChatList';
 
 import { useChatContext } from '@/features/chat-provider';
 import { TChat } from '@/shared/mocks';
@@ -20,8 +20,10 @@ export const ChatContainer = ({ id, initialChat }: Props) => {
   return (
     <>
       <aside className="h-full w-80 border-r border-gray-200">
-        <ChatHeader />
-        <ChatList activeChatId={id} chats={chats} />
+        <div className="flex h-full flex-col">
+          <ChatHeader />
+          <ChatList activeChatId={id} chats={chats} />
+        </div>
       </aside>
 
       <section className="flex flex-1 flex-col">

@@ -45,5 +45,61 @@ export const CHATS_MOCKED: Record<string, TChat> = {
       { id: '2', text: '@fake_tg в tg', createdAt: 1742567460000, isMine: true },
       { id: '3', text: 'Спасибо!', createdAt: 1742567520000, isMine: false }
     ]
+  },
+  '4': {
+    id: '4',
+    name: 'Мария',
+    avatar: '/maria.jpg',
+    messages: [
+      { id: '1', text: 'Скинь контакты разработчика', createdAt: 1742567400000, isMine: false },
+      { id: '2', text: '@fake_tg в tg', createdAt: 1742567460000, isMine: true },
+      { id: '3', text: 'Спасибо!', createdAt: 1742567520000, isMine: false }
+    ]
+  },
+  '5': {
+    id: '5',
+    name: 'Мария',
+    avatar: '/maria.jpg',
+    messages: [
+      { id: '1', text: 'Скинь контакты разработчика', createdAt: 1742567400000, isMine: false },
+      { id: '2', text: '@fake_tg в tg', createdAt: 1742567460000, isMine: true },
+      { id: '3', text: 'Спасибо!', createdAt: 1742567520000, isMine: false }
+    ]
+  },
+  '6': {
+    id: '6',
+    name: 'Мария',
+    avatar: '/maria.jpg',
+    messages: [
+      { id: '1', text: 'Скинь контакты разработчика', createdAt: 1742567400000, isMine: false },
+      { id: '2', text: '@fake_tg в tg', createdAt: 1742567460000, isMine: true },
+      { id: '3', text: 'Спасибо!', createdAt: 1742567520000, isMine: false }
+    ]
+  },
+  '7': {
+    id: '7',
+    name: 'Мария',
+    avatar: '/maria.jpg',
+    messages: [
+      { id: '1', text: 'Скинь контакты разработчика', createdAt: 1742567400000, isMine: false },
+      { id: '2', text: '@fake_tg в tg', createdAt: 1742567460000, isMine: true },
+      { id: '3', text: 'Спасибо!', createdAt: 1742567520000, isMine: false }
+    ]
+  },
+  '8': {
+    id: '8',
+    name: 'Мария',
+    avatar: '/maria.jpg',
+    messages: [
+      { id: '1', text: 'Скинь контакты разработчика', createdAt: 1742567400000, isMine: false },
+      { id: '2', text: '@fake_tg в tg', createdAt: 1742567460000, isMine: true },
+      { id: '3', text: 'Спасибо!', createdAt: 1742567520000, isMine: false }
+    ]
+  },
+  '9': {
+    id: '9',
+    name: 'Мария',
+    avatar: '/maria.jpg',
+    messages: []
   }
 };
