@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 
 import { DialogHeader } from '../../dialog-header/ui/DialogHeader';
 import { DialogMessageList } from '../../dialog-message-list/ui/DialogMessageList';

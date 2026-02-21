@@ -27,7 +27,7 @@ export const DialogSendMessageForm = ({ value, onChange, onSend, placeholder }: 
   return (
     <div
       className={cn(
-        'rounded-br-2xl border-t border-gray-200 bg-gray-50 px-6 py-4',
+        'max-w-2xl rounded-br-2xl border-t border-gray-200 bg-gray-50 px-6 py-4',
         isTablet && 'rounded-bl-2xl'
       )}
     >

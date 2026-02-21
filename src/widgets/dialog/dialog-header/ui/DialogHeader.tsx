@@ -16,7 +16,7 @@ export const DialogHeader = ({ name, avatarSrc }: TProps) => {
   return (
     <header
       className={cn(
-        `flex h-20 items-center gap-3 rounded-tr-2xl border-b border-gray-200 bg-gray-50 px-6 py-4`,
+        `flex h-20 max-w-2xl items-center gap-3 rounded-tr-2xl border-b border-gray-200 bg-gray-50 px-6 py-4`,
         isTablet && 'rounded-tl-2xl'
       )}
     >

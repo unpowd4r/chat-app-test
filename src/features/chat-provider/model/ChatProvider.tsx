@@ -6,13 +6,13 @@ import { useChat } from './useChat';
 
 import { TChat } from '@/shared/mocks';
 
-type ChatContextType = {
+type TChatContextType = {
   getChat: (id: string) => TChat | undefined;
   getAllChats: () => TChat[];
   sendMessage: (chatId: string, text: string) => void;
 };
 
-const ChatContext = createContext<ChatContextType | null>(null);
+const ChatContext = createContext<TChatContextType | null>(null);
 
 export const ChatProvider = ({
   children,
