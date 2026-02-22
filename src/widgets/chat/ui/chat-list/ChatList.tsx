@@ -1,7 +1,6 @@
 'use client';
 
-import { ChatCard } from '@/entities/chat';
-import { useChatContext } from '@/features/chat';
+import { ChatCard, useChatContext } from '@/features/chat';
 import { sortChatsByTime } from '@/shared/lib/utils';
 
 type TProps = {
