@@ -1,1 +1,1 @@
-export { DialogContainer } from './ui/dialog-container/DialogContainer';
+export { DialogContainer } from './containers';

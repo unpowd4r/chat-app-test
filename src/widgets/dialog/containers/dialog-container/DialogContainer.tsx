@@ -2,9 +2,10 @@
 
 import { useLayoutEffect, useRef, useState } from 'react';
 
+import { DialogHeader, DialogMessageList } from '../../ui';
+
 import { useChatContext } from '@/features/chat';
 import { DialogSendMessageForm } from '@/features/dialog';
-import { DialogHeader, DialogMessageList } from '@/widgets/dialog/@x/dialog-container';
 
 type TProps = {
   id: string;
