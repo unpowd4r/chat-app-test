@@ -1,0 +1,1 @@
+export { ChatCloseProvider } from './ChatCloseProvider';

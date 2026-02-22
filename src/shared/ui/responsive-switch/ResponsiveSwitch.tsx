@@ -1,17 +1,17 @@
 'use client';
 
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 
 import { MEDIA_QUERIES } from '@/shared/config';
-import { useMediaQuery } from '@/shared/lib/utils';
+import { useMediaQuery } from '@/shared/lib/hooks';
 
-type Props = {
+type TProps = {
   desktop: ReactNode;
   mobile: ReactNode;
 };
 
-export const ResponsiveSwitch = ({ desktop, mobile }: Props) => {
+export const ResponsiveSwitch = ({ desktop, mobile }: TProps) => {
   const isMobile = useMediaQuery(MEDIA_QUERIES.TABLET);
 
-  return <>{isMobile ? mobile : desktop}</>;
+  return isMobile ? mobile : desktop;
 };

@@ -1,3 +1,1 @@
-export { DialogHeader } from './dialog-header/ui/DialogHeader';
-export { DialogMessageList } from './dialog-message-list/ui/DialogMessageList';
-export { DialogContainer } from './dialog-container/ui/DialogContainer';
+export { DialogContainer } from './ui/dialog-container/DialogContainer';

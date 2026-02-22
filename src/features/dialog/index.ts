@@ -1,0 +1,1 @@
+export { DialogSendMessageForm } from './ui';

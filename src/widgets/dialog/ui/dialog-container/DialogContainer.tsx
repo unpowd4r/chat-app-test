@@ -1,0 +1,46 @@
+'use client';
+
+import { useLayoutEffect, useRef, useState } from 'react';
+
+import { useChatContext } from '@/features/chat';
+import { DialogSendMessageForm } from '@/features/dialog';
+import { DialogHeader, DialogMessageList } from '@/widgets/dialog/@x/dialog-container';
+
+type TProps = {
+  id: string;
+};
+
+export const DialogContainer = ({ id }: TProps) => {
+  const { getChat, sendMessage } = useChatContext();
+  const bottomRef = useRef<HTMLDivElement>(null);
+
+  const [message, setMessage] = useState('');
+
+  const chat = getChat(id);
+
+  useLayoutEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: 'instant' });
+  }, [id, sendMessage]);
+
+  const handleSend = () => {
+    if (!message.trim()) return;
+
+    sendMessage(id, message);
+    setMessage('');
+  };
+
+  if (!chat) return null;
+
+  return (
+    <>
+      <DialogHeader name={chat.name} avatarSrc={chat.avatar} />
+      <DialogMessageList messages={chat.messages} bottomRef={bottomRef} />
+      <DialogSendMessageForm
+        value={message}
+        onChange={setMessage}
+        onSend={handleSend}
+        placeholder="Введите сообщение..."
+      />
+    </>
+  );
+};

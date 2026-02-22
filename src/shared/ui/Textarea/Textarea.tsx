@@ -36,7 +36,6 @@ export const Textarea = ({ className, maxHeight = 140, maxLength = 4096, ...prop
     <textarea
       ref={textareaRef}
       maxLength={maxLength}
-      rows={1}
       className={cn(
         'flex-1 resize-none rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm text-gray-500',
         'placeholder:text-gray-500 focus:ring-1 focus:ring-gray-100 focus:outline-none',

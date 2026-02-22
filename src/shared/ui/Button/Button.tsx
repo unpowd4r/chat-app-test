@@ -2,9 +2,9 @@ import { ButtonHTMLAttributes } from 'react';
 
 import { cn } from '@/shared/lib/utils';
 
-type Props = ButtonHTMLAttributes<HTMLButtonElement>;
+type TProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const Button = ({ className, children, ...props }: Props) => {
+export const Button = ({ className, children, ...props }: TProps) => {
   return (
     <button
       className={cn(
