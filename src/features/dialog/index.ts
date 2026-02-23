@@ -1,1 +1,1 @@
-export { DialogSendMessageForm } from './ui';
+export { SendMessageForm } from './ui';

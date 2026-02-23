@@ -5,7 +5,7 @@ import { useLayoutEffect, useRef, useState } from 'react';
 import { DialogHeader, DialogMessageList } from '../../ui';
 
 import { useChatContext } from '@/features/chat';
-import { DialogSendMessageForm } from '@/features/dialog';
+import { SendMessageForm } from '@/features/dialog';
 
 type TProps = {
   id: string;
@@ -36,7 +36,7 @@ export const DialogContainer = ({ id }: TProps) => {
     <>
       <DialogHeader name={chat.name} avatarSrc={chat.avatar} />
       <DialogMessageList messages={chat.messages} bottomRef={bottomRef} />
-      <DialogSendMessageForm
+      <SendMessageForm
         value={message}
         onChange={setMessage}
         onSend={handleSend}

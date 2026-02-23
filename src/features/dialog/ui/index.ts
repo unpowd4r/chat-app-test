@@ -1,1 +1,1 @@
-export { DialogSendMessageForm } from './send-message-form/DialogSendMessageForm';
+export { SendMessageForm } from './send-message-form/SendMessageForm';

@@ -14,8 +14,9 @@ type TProps = {
   placeholder?: string;
 };
 
-export const DialogSendMessageForm = ({ value, onChange, onSend, placeholder }: TProps) => {
+export const SendMessageForm = ({ value, onChange, onSend, placeholder }: TProps) => {
   const isTablet = useMediaQuery(MEDIA_QUERIES.TABLET);
+  const isSendDisabled = value.trim() === '';
 
   const handleKeyDown = (e: KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {
@@ -40,7 +41,9 @@ export const DialogSendMessageForm = ({ value, onChange, onSend, placeholder }: 
           className="self-center"
           placeholder={placeholder}
         />
-        <Button onClick={onSend}>Отправить</Button>
+        <Button disabled={isSendDisabled} onClick={onSend}>
+          Отправить
+        </Button>
       </div>
     </div>
   );
