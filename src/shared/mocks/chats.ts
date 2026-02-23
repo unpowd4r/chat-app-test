@@ -1,16 +1,4 @@
-type TMessage = {
-  id: string;
-  text: string;
-  createdAt: number;
-  isMine: boolean;
-};
-
-type TChat = {
-  id: string;
-  name: string;
-  avatar: string;
-  messages: TMessage[];
-};
+import { TChat } from './types';
 
 export const CHATS_MOCKED: Record<string, TChat> = {
   '1': {

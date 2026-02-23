@@ -15,7 +15,7 @@ export const DialogContainer = ({ id }: TProps) => {
   const { getChat, sendMessage } = useChatContext();
   const bottomRef = useRef<HTMLDivElement>(null);
 
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState<string>('');
 
   const chat = getChat(id);
 
