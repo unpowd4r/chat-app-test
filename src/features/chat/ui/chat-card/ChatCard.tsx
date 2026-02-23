@@ -30,7 +30,7 @@ export const ChatCard = ({ id, name, message, createdAt, avatarSrc, isActive }: 
           </div>
           <div className="shrink-0 text-right">
             <p className="text-primary whitespace-nowrap text-gray-500">
-              {formatLastMessageTime(createdAt)}
+              {!isNaN(createdAt) ? formatLastMessageTime(createdAt) : null}
             </p>
           </div>
         </div>

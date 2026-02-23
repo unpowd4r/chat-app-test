@@ -2,6 +2,7 @@
 
 import { ChatCard, useChatContext } from '@/features/chat';
 import { sortChatsByTime } from '@/shared/lib/utils';
+import { EmptyState } from '@/shared/ui';
 
 type TProps = {
   activeChatId?: string;
@@ -14,11 +15,7 @@ export const ChatList = ({ activeChatId }: TProps) => {
   const sortedChats = effectiveChats ? sortChatsByTime(effectiveChats) : [];
 
   if (sortedChats.length === 0) {
-    return (
-      <div className="flex h-full items-center justify-center">
-        <p className="text-gray-400">Чатов нет</p>
-      </div>
-    );
+    return <EmptyState message="Чатов нет" />;
   }
 
   return (
@@ -32,7 +29,7 @@ export const ChatList = ({ activeChatId }: TProps) => {
               id={chat.id}
               name={chat.name}
               message={lastMessage?.text || 'Нет сообщений'}
-              createdAt={lastMessage?.createdAt || 0}
+              createdAt={lastMessage?.createdAt}
               avatarSrc={chat.avatar}
               isActive={chat.id === activeChatId}
             />

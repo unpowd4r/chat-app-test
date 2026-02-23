@@ -2,6 +2,7 @@ import { RefObject } from 'react';
 
 import { Message } from '@/entities/dialog';
 import { type TMessage } from '@/shared/mocks';
+import { EmptyState } from '@/shared/ui';
 
 type TProps = {
   messages: TMessage[];
@@ -10,11 +11,7 @@ type TProps = {
 
 export const DialogMessageList = ({ messages, bottomRef }: TProps) => {
   if (messages.length === 0) {
-    return (
-      <div className="flex h-full items-center justify-center">
-        <p className="text-gray-400">Нет сообщений</p>
-      </div>
-    );
+    return <EmptyState message="Нет сообщений" />;
   }
 
   return (
