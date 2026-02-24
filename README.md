@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
-## Getting Started
-
-First, run the development server:
+## Как запустить
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+# Установка зависимостей
+pnpm install
+
+# Запуск в prod
+pnpm build
+pnpm start
+
+# Запуск в dev
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Откройте [http://localhost:3000/chat](http://localhost:3000/chat) в браузере.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Что сделано
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Реализовано веб-приложение чата с использованием Next.js 15.
+- Приложение включает список диалогов с аватарами и последними сообщениями, просмотр переписки внутри выбранного чата, адаптивный дизайн для десктопных и мобильных устройств.
+- Стили реализованы через Tailwind CSS.
+- Используется архитектура FSD.
+- Данные хранятся в store и доступны через REST API (`/api/conversations`, `/api/messages`).
+- Обработка ошибок и статусов.
+- Простая валидация тела POST через zod.
+- На ESC закрывается чат.
+- Последний актуальный по времени диалог, после отправки нового сообщения поднимается вверх.
 
-## Learn More
+## Что можно доработать
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Добавить создание новых диалогов
+- Добавить пагинацию для сообщений
+- Добавить поиск по сообщениям\диалогам
+- Подключить реальную базу данных вместо хранения в памяти
+- Реализовать аутентификацию пользователей и статусы онлайн/офлайн
+- Добавить уведомления о новых сообщениях и индикатор набора текста
+- Добавить websockets
+- Добавить error.tsx, not-found.tsx, loading.tsx
