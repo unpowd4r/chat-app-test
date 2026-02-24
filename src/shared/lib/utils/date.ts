@@ -1,3 +1,5 @@
+import { TChatPreview } from '@/shared/mocks';
+
 export const formatMessageTime = (timestamp: number): string => {
   const now = Date.now();
   const diff = now - timestamp;
@@ -41,13 +43,11 @@ export const getTimeValue = (timestamp: number): number => {
   return timestamp;
 };
 
-export const sortChatsByTime = <T extends { messages: Array<{ createdAt: number }> }>(
-  chats: T[]
-): T[] => {
+export const sortChatsByTime = (chats: TChatPreview[]): TChatPreview[] => {
   return [...chats].sort((a, b) => {
-    const lastMessageA = a.messages[a.messages.length - 1];
-    const lastMessageB = b.messages[b.messages.length - 1];
+    const timeA = a.lastMessage?.createdAt || 0;
+    const timeB = b.lastMessage?.createdAt || 0;
 
-    return lastMessageB?.createdAt - lastMessageA?.createdAt;
+    return timeB - timeA;
   });
 };

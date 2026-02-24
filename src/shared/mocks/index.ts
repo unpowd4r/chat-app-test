@@ -1,2 +1,2 @@
 export { CHATS_MOCKED } from './chats';
-export type { TChat, TMessage } from './types';
+export type { TChat, TChatMessages, TChatPreview, TMessage } from './types';

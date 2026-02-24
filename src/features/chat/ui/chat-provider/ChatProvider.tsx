@@ -4,27 +4,32 @@ import { createContext, type ReactNode } from 'react';
 
 import { useChat } from '../../model';
 
-import { TChat } from '@/shared/mocks';
+import { TChatMessages, TChatPreview, TMessage } from '@/shared/mocks';
 
 type TChatContextType = {
-  getChat: (id: string) => TChat | undefined;
-  getAllChats: () => TChat[];
-  sendMessage: (chatId: string, text: string) => void;
+  chatCardsPreview: TChatPreview[];
+  sendMessage: (chatId: string, text: string) => Promise<void>;
+  getChatMessages: (chatId: string) => TMessage[];
 };
 
 export const ChatContext = createContext<TChatContextType | null>(null);
 
 export const ChatProvider = ({
   children,
-  initialChats
+  allPreviewChats,
+  initialMessages
 }: {
   children: ReactNode;
-  initialChats: Record<string, TChat>;
+  allPreviewChats: TChatPreview[];
+  initialMessages: TChatMessages[];
 }) => {
-  const { getChat, sendMessage, getAllChats } = useChat(initialChats);
+  const { chatCardsPreview, sendMessage, getChatMessages } = useChat(
+    allPreviewChats,
+    initialMessages
+  );
 
   return (
-    <ChatContext.Provider value={{ getChat, sendMessage, getAllChats }}>
+    <ChatContext.Provider value={{ chatCardsPreview, sendMessage, getChatMessages }}>
       {children}
     </ChatContext.Provider>
   );

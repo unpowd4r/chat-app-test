@@ -1,31 +1,58 @@
 'use client';
 
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
-import { TChat, TMessage } from '@/shared/mocks';
+import { api } from '@/shared/api';
+import { TChatMessages, TChatPreview, TMessage } from '@/shared/mocks';
 
-export const useChat = (initialChats: Record<string, TChat>) => {
-  const [chats, setChats] = useState(initialChats);
+export const useChat = (allPreviewChats: TChatPreview[], initialMessages: TChatMessages[]) => {
+  const [chatCardsPreview, setChatCardsPreview] = useState<TChatPreview[]>(allPreviewChats);
+  const [allMessages, setAllMessages] = useState<TChatMessages[]>(initialMessages);
 
-  const sendMessage = (chatId: string, text: string) => {
-    const newMessage: TMessage = {
-      id: Date.now().toString(),
-      text,
-      createdAt: Date.now(),
-      isMine: true
-    };
+  const sendMessage = useCallback(
+    async (chatId: string, text: string) => {
+      const optimisticUpdateMessage: TMessage = {
+        id: Date.now().toString(),
+        text,
+        createdAt: Date.now(),
+        isMine: true
+      };
 
-    setChats((prev) => ({
-      ...prev,
-      [chatId]: {
-        ...prev[chatId],
-        messages: [...prev[chatId].messages, newMessage]
+      const previousMessages = allMessages;
+      const previousPreview = chatCardsPreview;
+
+      setAllMessages((prev) =>
+        prev.map((chat) =>
+          chat.id === chatId
+            ? { ...chat, messages: [...chat.messages, optimisticUpdateMessage] }
+            : chat
+        )
+      );
+
+      setChatCardsPreview((prev) =>
+        prev.map((chat) =>
+          chat.id === chatId ? { ...chat, lastMessage: optimisticUpdateMessage } : chat
+        )
+      );
+
+      try {
+        await api.sendMessage(chatId, text, 'me');
+      } catch (error) {
+        setAllMessages(previousMessages);
+        setChatCardsPreview(previousPreview);
+
+        console.error('Error sending message:', error);
       }
-    }));
-  };
+    },
+    [allMessages, chatCardsPreview]
+  );
 
-  const getChat = (id: string) => chats[id];
-  const getAllChats = () => Object.values(chats);
+  const getChatMessages = useCallback(
+    (chatId: string) => {
+      return allMessages.find((chat) => chat.id === chatId)?.messages || [];
+    },
+    [allMessages]
+  );
 
-  return { getChat, getAllChats, sendMessage };
+  return { chatCardsPreview, sendMessage, getChatMessages };
 };
