@@ -38,3 +38,4 @@ pnpm dev
 - В идеале добавить, например, websockets вместо простого Polling
 - Добавить error.tsx, not-found.tsx, loading.tsx
 - Не хранить все сообщения в allMessages, а делать запрос для конкретного чата
+- Добавить разные senderId
