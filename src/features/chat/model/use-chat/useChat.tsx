@@ -3,11 +3,21 @@
 import { useCallback, useState } from 'react';
 
 import { api } from '@/shared/api';
+import { usePolling } from '@/shared/lib/hooks';
 import { TChatMessages, TChatPreview, TMessage } from '@/shared/mocks';
 
 export const useChat = (allPreviewChats: TChatPreview[], initialMessages: TChatMessages[]) => {
   const [chatCardsPreview, setChatCardsPreview] = useState<TChatPreview[]>(allPreviewChats);
   const [allMessages, setAllMessages] = useState<TChatMessages[]>(initialMessages);
+
+  usePolling(async () => {
+    const [conversations, messages] = await Promise.all([
+      api.getConversations(),
+      api.getMessages()
+    ]);
+    setChatCardsPreview(conversations);
+    setAllMessages(messages);
+  }, 2000);
 
   const sendMessage = useCallback(
     async (chatId: string, text: string) => {
