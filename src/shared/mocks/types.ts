@@ -12,14 +12,8 @@ export type TChat = {
   messages: TMessage[];
 };
 
-export type TChatPreview = {
-  id: string;
-  name: string;
-  avatar: string;
+export type TChatPreview = Omit<TChat, 'messages'> & {
   lastMessage: TMessage | null;
 };
 
-export type TChatMessages = {
-  id: string;
-  messages: TMessage[];
-};
+export type TChatMessages = Pick<TChat, 'id' | 'messages'>;
